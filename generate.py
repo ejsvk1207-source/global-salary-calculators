@@ -4,6 +4,8 @@ import os
 # 0. AdSense 코드 (지금은 비워두고, 승인나면 안에 붙여넣기)
 # ==============================
 ADSENSE_SNIPPET = """
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5480469641280477"
+     crossorigin="anonymous"></script>
 """
 
 SITE_URL = "https://ejsvk1207-source.github.io"
