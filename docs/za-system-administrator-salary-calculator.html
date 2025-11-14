@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>South Africa System Administrator Net Salary Calculator (Simplified Take-Home Pay)</title>
+  <meta name="description" content="Estimate your net salary (take-home pay) as a System Administrator in South Africa. Enter your gross yearly salary to see an approximate yearly, monthly, and weekly net income after tax and social contributions.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <h1>South Africa System Administrator Net Salary Calculator (Simplified Take-Home Pay)</h1>
+    <p class="subtitle">South Africa · System Administrator · ZAR</p>
+  </header>
+
+  <main>
+    <section class="intro">
+      <p>Estimate your net salary (take-home pay) as a System Administrator in South Africa. Enter your gross yearly salary to see an approximate yearly, monthly, and weekly net income after tax and social contributions.</p>
+      <p class="disclaimer">
+        This tool gives a <strong>rough, simplified estimate</strong> of your net salary (take-home pay).
+        Real tax systems are more complex and change over time. For exact numbers, use official
+        government calculators or consult a professional.
+      </p>
+    </section>
+
+    <section class="calculator">
+      <h2>Enter your salary</h2>
+      <form id="salary-form">
+        <label>
+          Gross yearly salary (before tax) in ZAR:
+          <input type="number" id="grossYearly" placeholder="e.g. 60000" required min="0" step="100">
+        </label>
+
+        <label>
+          Optional yearly bonus in ZAR:
+          <input type="number" id="bonusYearly" placeholder="e.g. 5000" min="0" step="100">
+        </label>
+
+        <button type="submit">Calculate net salary</button>
+      </form>
+
+      <div id="result" class="result hidden">
+        <h2>Estimated take-home pay</h2>
+        <p class="result-number">
+          Yearly net: <span id="netYearly"></span> ZAR
+        </p>
+        <p class="result-number">
+          Monthly net: <span id="netMonthly"></span> ZAR
+        </p>
+        <p class="result-number">
+          Weekly net: <span id="netWeekly"></span> ZAR
+        </p>
+
+        <p class="details">
+          We used an approximate income tax rate of <strong>18.0%</strong> and
+          social contributions of <strong>5.0%</strong> for
+          South Africa System Administrator. This is a simplified model for quick reference only.
+        </p>
+      </div>
+    </section>
+
+    <section class="extra-info">
+      <h2>How this calculator works (simplified)</h2>
+      <ol>
+        <li>You enter your <strong>gross yearly salary</strong> and optional bonus.</li>
+        <li>We add them together to get your <strong>total gross income</strong>.</li>
+        <li>We subtract an approximate <strong>income tax</strong> and
+            <strong>social contributions</strong>.</li>
+        <li>The remaining amount is your <strong>estimated net salary</strong>.</li>
+      </ol>
+      <p>
+        Real tax rules usually include progressive brackets, deductions, allowances,
+        and other local details. This tool is just a <strong>quick ballpark estimate</strong>
+        to help you compare options between jobs, cities, or countries.
+      </p>
+    </section>
+
+    <footer>
+      <p>
+        Part of the <strong>Global Salary Calculators</strong> project.
+        Browse more calculators on the <a href="../index.html">main index page</a>.
+      </p>
+    </footer>
+  </main>
+
+  <script>
+    window.calculatorConfig = {
+      "tax_rate": 0.18,
+      "social_rate": 0.05,
+      "currency": "ZAR",
+      "country": "South Africa",
+      "job": "System Administrator"
+    };
+  </script>
+  <script src="../script.js"></script>
+</body>
+</html>
