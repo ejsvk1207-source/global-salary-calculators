@@ -1,8 +1,6 @@
 import os
 
-# ==============================
-# 0. AdSense 코드 (지금은 비워두고, 승인나면 안에 붙여넣기)
-# ==============================
+# 0. AdSense snippet (your real code here)
 ADSENSE_SNIPPET = """
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5480469641280477"
      crossorigin="anonymous"></script>
@@ -10,19 +8,15 @@ ADSENSE_SNIPPET = """
 
 SITE_URL = "https://ejsvk1207-source.github.io"
 
-# ==============================
-# 1. 템플릿 / 스크립트 / 스타일
-# ==============================
-
 TEMPLATE_HTML = """<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>{{TITLE}}</title>
-<meta name="description" content="{{DESCRIPTION}}">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-{{ADSENSE_SNIPPET}}
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>{{TITLE}}</title>
+  <meta name="description" content="{{DESCRIPTION}}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {{ADSENSE_SNIPPET}}
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -164,7 +158,7 @@ PRIVACY_HTML = """<!DOCTYPE html>
 <p>These networks may use cookies to personalize and measure ads. We do not store
 personally identifiable information on this site. Any salary values you enter are
 processed only in your browser.</p>
-<p>For more information, see Google&apos;s privacy policy.</p>
+<p>For more information, see Google's privacy policy.</p>
 <p><a href="index.html">Back to main page</a></p>
 </body></html>
 """
@@ -181,49 +175,19 @@ resources or a professional advisor for accurate information.</p>
 </body></html>
 """
 
-# ==============================
-# 2. 데이터 (국가 / 직업)
-# ==============================
-
+# 일단은 테스트용으로 나라/직업을 줄여두었음 (애드센스 통과 후 다시 늘리자)
 COUNTRIES = [
     {"code": "us", "name": "United States", "currency": "USD", "tax_rate": 0.22, "social_rate": 0.076},
     {"code": "in", "name": "India", "currency": "INR", "tax_rate": 0.18, "social_rate": 0.03},
-    {"code": "id", "name": "Indonesia", "currency": "IDR", "tax_rate": 0.08, "social_rate": 0.04},
-    {"code": "br", "name": "Brazil", "currency": "BRL", "tax_rate": 0.17, "social_rate": 0.11},
-    {"code": "ng", "name": "Nigeria", "currency": "NGN", "tax_rate": 0.10, "social_rate": 0.02},
-    {"code": "mx", "name": "Mexico", "currency": "MXN", "tax_rate": 0.16, "social_rate": 0.06},
-    {"code": "ph", "name": "Philippines", "currency": "PHP", "tax_rate": 0.12, "social_rate": 0.08},
-    {"code": "bd", "name": "Bangladesh", "currency": "BDT", "tax_rate": 0.10, "social_rate": 0.03},
-    {"code": "pk", "name": "Pakistan", "currency": "PKR", "tax_rate": 0.10, "social_rate": 0.03},
-    {"code": "vn", "name": "Vietnam", "currency": "VND", "tax_rate": 0.10, "social_rate": 0.08},
-    {"code": "uk", "name": "United Kingdom", "currency": "GBP", "tax_rate": 0.20, "social_rate": 0.12},
-    {"code": "de", "name": "Germany", "currency": "EUR", "tax_rate": 0.22, "social_rate": 0.19},
-    {"code": "fr", "name": "France", "currency": "EUR", "tax_rate": 0.22, "social_rate": 0.16},
-    {"code": "ca", "name": "Canada", "currency": "CAD", "tax_rate": 0.20, "social_rate": 0.08},
-    {"code": "au", "name": "Australia", "currency": "AUD", "tax_rate": 0.19, "social_rate": 0.095},
 ]
 
 JOBS = [
-    "Software Engineer","Teacher","Nurse","Doctor","Factory Worker","Call Center Agent",
-    "Truck Driver","Taxi Driver","Retail Worker","Civil Servant","Data Analyst","Web Developer",
-    "Accountant","Graphic Designer","Mechanical Engineer","Electrician","Plumber","Construction Worker",
-    "Sales Manager","Marketing Manager","Project Manager","IT Support Specialist","Cybersecurity Analyst",
-    "Pharmacist","Dentist","Lab Technician","Chef","Waiter","Hotel Manager","Flight Attendant",
-    "Pilot","Bank Teller","Financial Analyst","Insurance Agent","Farmer","Fisherman","Warehouse Worker",
-    "Delivery Driver","Barber","Hair Stylist","Makeup Artist","Painter","Photographer","Translator",
-    "Interpreter","Writer","Editor","Journalist","Real Estate Agent","Architect","Civil Engineer",
-    "Software Tester","Quality Assurance Specialist","UI UX Designer","Content Creator","Social Media Manager",
-    "SEO Specialist","Security Guard","Firefighter","Police Officer","Paramedic","Car Mechanic","Bus Driver",
-    "Train Operator","Machine Operator","Miner","Oil Rig Worker","Teacher Assistant","Kindergarten Teacher",
-    "University Professor","Research Assistant","Librarian","Veterinarian","Animal Care Worker","Scientist",
-    "Chemist","Biologist","Physicist","Mathematician","Economist","Lawyer","Judge","Legal Assistant",
-    "HR Manager","Recruiter","Business Consultant","Entrepreneur","Cafe Manager","Store Manager","Courier",
-    "Logistics Coordinator","Network Engineer","Cloud Engineer","AI Engineer","ML Engineer","DevOps Engineer"
+    "Software Engineer",
+    "Teacher",
+    "Nurse",
+    "Doctor",
+    "Factory Worker",
 ]
-
-# ==============================
-# 3. 유틸 함수
-# ==============================
 
 def slugify(text):
     return (
@@ -239,10 +203,6 @@ def write(path, content):
     with open(path, "w", encoding="utf-8") as f:
         f.write(content)
 
-# ==============================
-# 4. 메인 로직
-# ==============================
-
 def main():
     # 공통 파일
     write("template.html", TEMPLATE_HTML)
@@ -253,7 +213,7 @@ def main():
     calculators = []
     template = TEMPLATE_HTML.replace("{{ADSENSE_SNIPPET}}", ADSENSE_SNIPPET.strip())
 
-    # 계산기 페이지 생성 (루트에 바로 생성)
+    # 각 계산기 페이지 생성
     for c in COUNTRIES:
         for j in JOBS:
             slug = f"{c['code']}-{slugify(j)}-salary-calculator"
@@ -273,23 +233,19 @@ def main():
             )
 
             write(filename, html)
-            calculators.append({"slug": slug, "title": title, "country": c["name"], "job": j})
+            calculators.append({"slug": slug, "title": title})
 
-    # index.html
-    calculators.sort(key=lambda x: (x["country"], x["job"]))
+    # index.html (여기도 애드센스 코드 포함)
     index_html = "<!DOCTYPE html><html><head><meta charset='UTF-8'><title>Global Salary Calculators</title>"
     index_html += "<meta name='description' content='Simplified net salary calculators for many jobs and countries.'>"
+    index_html += ADSENSE_SNIPPET
     index_html += "<link rel='stylesheet' href='style.css'></head><body>"
-    index_html += "<header><h1>Global Salary Calculators</h1></header><main>"
-    index_html += "<section><p>Select a calculator below.</p></section><section><ul>"
-
+    index_html += "<header><h1>Global Salary Calculators</h1></header><main><ul>"
     for m in calculators:
         index_html += f"<li><a href='{m['slug']}.html'>{m['title']}</a></li>"
-
-    index_html += "</ul></section>"
+    index_html += "</ul>"
     index_html += "<p><a href='privacy.html'>Privacy Policy</a> · <a href='disclaimer.html'>Disclaimer</a></p>"
     index_html += "</main></body></html>"
-
     write("index.html", index_html)
 
     # privacy / disclaimer
